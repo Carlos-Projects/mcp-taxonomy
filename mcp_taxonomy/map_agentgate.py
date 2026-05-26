@@ -8,7 +8,6 @@ from mcp_taxonomy.core import (
     DetectionMethod,
     Severity,
     TaxonomyEvent,
-    severity_weight,
 )
 
 _AGENTGATE_SIGNAL_MAP: dict[str, AttackCategory] = {

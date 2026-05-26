@@ -1,6 +1,5 @@
 """Tests for the core taxonomy."""
 
-import pytest
 from mcp_taxonomy import (
     AttackCategory,
     Confidence,

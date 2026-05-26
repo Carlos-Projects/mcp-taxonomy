@@ -1,12 +1,10 @@
 """Tests for cross-project adapters."""
 
-import pytest
 from mcp_taxonomy import (
     AttackCategory,
     Confidence,
     DetectionMethod,
     Severity,
-    TaxonomyEvent,
     agentgate_signal_to_taxonomy,
     mcpguard_event_to_taxonomy,
     mcpwn_finding_to_taxonomy,

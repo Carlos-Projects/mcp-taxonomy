@@ -20,6 +20,7 @@ from mcp_taxonomy.map_agentgate import agentgate_signal_to_taxonomy
 from mcp_taxonomy.map_mcpguard import mcpguard_event_to_taxonomy
 from mcp_taxonomy.map_mcpwn import mcpwn_finding_to_taxonomy
 from mcp_taxonomy.map_palisade import palisade_finding_to_taxonomy
+from mcp_taxonomy.map_raguard import raguard_finding_to_taxonomy
 
 __all__ = [
     "AttackCategory",
@@ -34,4 +35,5 @@ __all__ = [
     "mcpguard_event_to_taxonomy",
     "mcpwn_finding_to_taxonomy",
     "palisade_finding_to_taxonomy",
+    "raguard_finding_to_taxonomy",
 ]

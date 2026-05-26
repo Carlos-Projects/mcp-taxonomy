@@ -3,10 +3,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
 from typing import Any, ClassVar
-
 
 # ─── Severity ──────────────────────────────────────────────────────────
 
@@ -84,6 +83,13 @@ class AttackCategory(str, Enum):
     CRAWL = "crawl"
     MISCONFIGURATION = "misconfiguration"
 
+    # RAG-specific
+    DATA_POISONING = "data_poisoning"
+    MEMBERSHIP_INFERENCE = "membership_inference"
+    CONTEXT_OVERFLOW = "context_overflow"
+    RETRIEVAL_HIJACK = "retrieval_hijack"
+    VECTOR_INJECTION = "vector_injection"
+
 
 CATEGORY_SEVERITY: dict[AttackCategory, Severity] = {
     AttackCategory.RCE: Severity.CRITICAL,
@@ -106,6 +112,12 @@ CATEGORY_SEVERITY: dict[AttackCategory, Severity] = {
     AttackCategory.CRAWL: Severity.LOW,
     AttackCategory.HOMOGLYPH: Severity.LOW,
     AttackCategory.MISCONFIGURATION: Severity.LOW,
+    # RAG-specific
+    AttackCategory.DATA_POISONING: Severity.HIGH,
+    AttackCategory.MEMBERSHIP_INFERENCE: Severity.HIGH,
+    AttackCategory.CONTEXT_OVERFLOW: Severity.MEDIUM,
+    AttackCategory.RETRIEVAL_HIJACK: Severity.HIGH,
+    AttackCategory.VECTOR_INJECTION: Severity.CRITICAL,
 }
 
 
@@ -157,6 +169,15 @@ class DetectionMethod(str, Enum):
     DATACENTER_ASN = "datacenter_asn"
     REPEATED_PATH = "repeated_path_pattern"
     POLICY_MISMATCH = "policy_mismatch"
+
+    # RAGuard
+    DATA_POISONING_DETECTOR = "data_poisoning_detector"
+    MEMBERSHIP_INFERENCE_DETECTOR = "membership_inference_detector"
+    PROMPT_LEAKAGE_DETECTOR = "prompt_leakage_detector"
+    CONTEXT_OVERFLOW_DETECTOR = "context_overflow_detector"
+    RETRIEVAL_HIJACK_DETECTOR = "retrieval_hijack_detector"
+    VECTOR_INJECTION_DETECTOR = "vector_injection_detector"
+    POLICY_BYPASS_DETECTOR = "policy_bypass_detector"
 
 
 # ─── Confidence ────────────────────────────────────────────────────────
@@ -222,9 +243,7 @@ class TaxonomyEvent:
     target: str = ""
     snippet: str = ""
     raw: dict[str, Any] | None = None
-    timestamp: str = field(
-        default_factory=lambda: datetime.now(timezone.utc).isoformat()
-    )
+    timestamp: str = field(default_factory=lambda: datetime.now(UTC).isoformat())
     blocked: bool | None = None
     risk_score: int = 0
 

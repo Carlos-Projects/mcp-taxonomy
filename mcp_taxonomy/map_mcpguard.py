@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from datetime import UTC
+
 from mcp_taxonomy.core import (
     AttackCategory,
     Confidence,
@@ -79,7 +81,7 @@ def mcpguard_event_to_taxonomy(event: dict | object) -> TaxonomyEvent:
 
     severity = Severity(sev_str) if sev_str in {s.value for s in Severity} else Severity.MEDIUM
 
-    from datetime import datetime, timezone
+    from datetime import datetime
     return TaxonomyEvent(
         source="mcpguard",
         attack_category=category,
@@ -91,7 +93,7 @@ def mcpguard_event_to_taxonomy(event: dict | object) -> TaxonomyEvent:
         snippet=str(snippet)[:500],
         target=tool,
         blocked=blocked_val,
-        timestamp=ts if ts else datetime.now(timezone.utc).isoformat(),
+        timestamp=ts if ts else datetime.now(UTC).isoformat(),
         raw=details if isinstance(details, dict) else {},
         risk_score=severity_weight(severity) * 10,
     )
