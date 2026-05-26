@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp-taxonomy"
+version = "0.1.0"
+description = "Canonical taxonomy and cross-project adapters for the MCP security ecosystem"
+authors = [{ name = "Carlos Rocha", email = "carlos@carlosrocha.dev" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = [
+    "mcp", "a2a", "security", "taxonomy", "classification",
+    "prompt-injection", "llm-security", "agent-security",
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "ruff>=0.4"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["mcp_taxonomy"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
