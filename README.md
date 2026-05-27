@@ -1,5 +1,11 @@
 # mcp-taxonomy
 
+[![CI](https://github.com/Carlos-Projects/mcp-taxonomy/actions/workflows/publish.yml/badge.svg)](https://github.com/Carlos-Projects/mcp-taxonomy/actions/workflows/publish.yml)
+[![PyPI](https://img.shields.io/badge/PyPI-mcp--taxonomy-blue?logo=pypi)](https://pypi.org/project/mcp-taxonomy/)
+[![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python)](https://python.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-261230.svg)](https://docs.astral.sh/ruff/)
+
 Canonical classification taxonomy for the MCP security ecosystem.
 
 Provides shared enums, types, and cross-project adapters so findings from
@@ -76,3 +82,17 @@ tester, A2A scanner (MCPwn), known/suspicious UA, rate/honeypot (agentgate).
 | `mcpguard_event_to_taxonomy()` | `dict` or `SecurityEvent` | MCPGuard |
 | `mcpwn_finding_to_taxonomy()` | `dict` or `Finding` object | MCPwn |
 | `agentgate_signal_to_taxonomy()` | signal type + metadata | agentgate |
+
+## Development
+
+```bash
+pip install -e ".[dev]"
+python -m pytest tests/ -v
+ruff check .
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+## Security
+
+Found a vulnerability? See [SECURITY.md](SECURITY.md).
