@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "mcp-taxonomy"
 version = "0.2.0"
 description = "Canonical taxonomy and cross-project adapters for the MCP security ecosystem"
-authors = [{ name = "Carlos Rocha", email = "carlos@carlosrocha.dev" }]
+authors = [{ name = "Carlos-Projects", email = "Carlos@AIAgentObservatory.org" }]
 license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.11"
