@@ -1,6 +1,27 @@
 # Contributing to mcp-taxonomy
 
-We welcome contributions! This document outlines how to contribute.
+👋 **Welcome to MCP Taxonomy!**
+
+Thank you for contributing to the canonical classification taxonomy for the MCP security ecosystem. Whether you're adding a new adapter, improving enum coverage, or fixing a bug — your work helps unify how security findings are classified across all our tools.
+
+## First Time Contributor?
+
+Here's how to get started:
+
+- Look for issues labeled `good first issue`
+- Add a new adapter for a security tool — the pattern is well-documented
+- Improve test coverage or add edge cases
+- Help improve documentation or add more adapter examples
+
+We welcome contributors of all backgrounds. Your perspective makes this taxonomy better!
+
+## Need Help?
+
+Questions or feedback?
+
+- Open a [GitHub Issue](https://github.com/Carlos-Projects/mcp-taxonomy/issues)
+- Check existing issues first
+- Include details about what you're building and what's not working
 
 ## Development Setup
 
@@ -41,3 +62,7 @@ python -m pytest tests/ -v
 ## Security
 
 Found a vulnerability? See [SECURITY.md](SECURITY.md).
+
+---
+
+💡 This project is governed by a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you agree to uphold its principles.
