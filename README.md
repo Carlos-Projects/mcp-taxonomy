@@ -5,6 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-261230.svg)](https://docs.astral.sh/ruff/)
+[![Star History](https://img.shields.io/badge/Star-History-blue?style=social)](https://api.star-history.com/svg?repos=Carlos-Projects/mcp-taxonomy&type=Date)
 
 Canonical classification taxonomy for the MCP security ecosystem.
 
