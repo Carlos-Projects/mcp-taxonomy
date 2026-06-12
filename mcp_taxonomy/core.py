@@ -4,18 +4,19 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
-from enum import Enum
+from enum import StrEnum
 from typing import Any, ClassVar
 
 # ─── Severity ──────────────────────────────────────────────────────────
 
 
-class Severity(str, Enum):
+class Severity(StrEnum):
     CRITICAL = "critical"
     HIGH = "high"
     MEDIUM = "medium"
     LOW = "low"
     INFO = "info"
+    UNKNOWN = "unknown"
 
     def __gt__(self, other: Severity) -> bool:
         order = [s.value for s in Severity]
@@ -61,7 +62,7 @@ def severity_from_score(score: int) -> Severity:
 # ─── Attack Categories ────────────────────────────────────────────────
 
 
-class AttackCategory(str, Enum):
+class AttackCategory(StrEnum):
     INJECTION = "injection"
     JAILBREAK = "jailbreak"
     EXFILTRATION = "exfiltration"
@@ -82,6 +83,9 @@ class AttackCategory(str, Enum):
     RCE = "rce"
     CRAWL = "crawl"
     MISCONFIGURATION = "misconfiguration"
+    SUPPLY_CHAIN = "supply_chain"
+    MODEL_TAMPERING = "model_tampering"
+    UNKNOWN = "unknown"
 
     # RAG-specific
     DATA_POISONING = "data_poisoning"
@@ -118,13 +122,16 @@ CATEGORY_SEVERITY: dict[AttackCategory, Severity] = {
     AttackCategory.CONTEXT_OVERFLOW: Severity.MEDIUM,
     AttackCategory.RETRIEVAL_HIJACK: Severity.HIGH,
     AttackCategory.VECTOR_INJECTION: Severity.CRITICAL,
+    AttackCategory.SUPPLY_CHAIN: Severity.HIGH,
+    AttackCategory.MODEL_TAMPERING: Severity.HIGH,
+    AttackCategory.UNKNOWN: Severity.INFO,
 }
 
 
 # ─── Detection Methods ────────────────────────────────────────────────
 
 
-class DetectionMethod(str, Enum):
+class DetectionMethod(StrEnum):
     """Normalised detector / plugin names across all projects."""
 
     # palisade-scanner
@@ -183,7 +190,7 @@ class DetectionMethod(str, Enum):
 # ─── Confidence ────────────────────────────────────────────────────────
 
 
-class Confidence(str, Enum):
+class Confidence(StrEnum):
     CERTAIN = "certain"
     HIGH = "high"
     MEDIUM = "medium"
